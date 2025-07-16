@@ -1,5 +1,7 @@
 # 🌟 Meteor Shower Web Component
 
+![example meteor shower web-component in use](./assets/example.png)
+
 A beautiful, lightweight meteor shower animation as a Web Component. Perfect for creating stunning backgrounds in landing pages, portfolios, and interactive websites.
 
 ## ✨ Features
