@@ -120,7 +120,7 @@ MIT License - feel free to use this in your projects!
 
 ## 🐛 Issues
 
-Found a bug? Please [open an issue](https://github.com/tu-usuario/meteor-shower-webcomponent/issues) on GitHub.
+Found a bug? Please [open an issue](https://github.com/R00rss/meteor-shower-webcomponent/issues) on GitHub.
 
 ## 🌟 Show Your Support
 
