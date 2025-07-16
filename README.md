@@ -128,4 +128,4 @@ If you like this project, please give it a ⭐ on GitHub!
 
 ---
 
-Made with ❤️ by [Ronny García](https://github.com/R00rss)****
+Made with ❤️ by [Ronny García](https://github.com/R00rss)
