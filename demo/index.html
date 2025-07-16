@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meteor Shower Web Component - Demo</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Arial", sans-serif;
+        background: #000;
+        color: white;
+        overflow-x: hidden;
+      }
+
+      .hero {
+        position: relative;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .content {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        padding: 2rem;
+        background: rgba(0, 0, 0, 0.3);
+        border-radius: 15px;
+        backdrop-filter: blur(10px);
+      }
+
+      h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+      }
+
+      p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        opacity: 0.9;
+      }
+
+      .examples {
+        padding: 4rem 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .example {
+        margin: 3rem 0;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        padding: 2rem;
+        backdrop-filter: blur(10px);
+      }
+
+      .example h3 {
+        margin-bottom: 1rem;
+        color: #fff;
+      }
+
+      .example-container {
+        position: relative;
+        height: 300px;
+        border-radius: 10px;
+        overflow: hidden;
+        margin: 1rem 0;
+      }
+
+      .example-content {
+        position: relative;
+        z-index: 1;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.5rem;
+        text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+      }
+
+      code {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 0.2rem 0.5rem;
+        border-radius: 4px;
+        font-family: "Courier New", monospace;
+      }
+
+      .controls {
+        margin: 2rem 0;
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .controls label {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .controls input {
+        padding: 0.5rem;
+        border: none;
+        border-radius: 5px;
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        width: 80px;
+      }
+
+      .controls input:focus {
+        outline: 2px solid rgba(255, 255, 255, 0.5);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="hero">
+      <meteor-shower meteors="15" stars="400"></meteor-shower>
+      <div class="content">
+        <h1>Meteor Shower</h1>
+        <p>Beautiful Web Component for stunning backgrounds</p>
+        <p>Zero dependencies • Lightweight • Customizable</p>
+      </div>
+    </div>
+
+    <div class="examples">
+      <div class="example">
+        <h3>Basic Usage</h3>
+        <p>
+          Default settings:
+          <code>&lt;meteor-shower&gt;&lt;/meteor-shower&gt;</code>
+        </p>
+        <div class="example-container">
+          <meteor-shower></meteor-shower>
+          <div class="example-content">10 meteors, 300 stars</div>
+        </div>
+      </div>
+
+      <div class="example">
+        <h3>High Intensity</h3>
+        <p>
+          More meteors and stars:
+          <code
+            >&lt;meteor-shower meteors="25"
+            stars="500"&gt;&lt;/meteor-shower&gt;</code
+          >
+        </p>
+        <div class="example-container">
+          <meteor-shower meteors="25" stars="500"></meteor-shower>
+          <div class="example-content">25 meteors, 500 stars</div>
+        </div>
+      </div>
+
+      <div class="example">
+        <h3>Low Intensity</h3>
+        <p>
+          Subtle animation:
+          <code
+            >&lt;meteor-shower meteors="5"
+            stars="100"&gt;&lt;/meteor-shower&gt;</code
+          >
+        </p>
+        <div class="example-container">
+          <meteor-shower meteors="5" stars="100"></meteor-shower>
+          <div class="example-content">5 meteors, 100 stars</div>
+        </div>
+      </div>
+
+      <div class="example">
+        <h3>Interactive Demo</h3>
+        <div class="controls">
+          <label>
+            Meteors:
+            <input type="number" id="meteors" value="10" min="1" max="50" />
+          </label>
+          <label>
+            Stars:
+            <input type="number" id="stars" value="300" min="50" max="1000" />
+          </label>
+        </div>
+        <div class="example-container">
+          <meteor-shower
+            id="interactive"
+            meteors="10"
+            stars="300"
+          ></meteor-shower>
+          <div class="example-content">Interactive Demo</div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../src/meteor-shower.js"></script>
+    <script>
+      // Interactive demo
+      const meteorsInput = document.getElementById("meteors");
+      const starsInput = document.getElementById("stars");
+      const interactive = document.getElementById("interactive");
+
+      meteorsInput.addEventListener("input", (e) => {
+        interactive.setAttribute("meteors", e.target.value);
+      });
+
+      starsInput.addEventListener("input", (e) => {
+        interactive.setAttribute("stars", e.target.value);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,90 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.meteor-container {
+  --primary: #2a0919;
+  --secondary: #030d1b;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-image: radial-gradient(
+    ellipse at top,
+    var(--primary) 0%,
+    var(--secondary) 95%
+  );
+}
+
+.stars {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.meteors {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.star {
+  --size-star: 1px;
+  position: absolute;
+  width: var(--size-star);
+  height: var(--size-star);
+  background: #fff;
+  border-radius: 50%;
+  animation: twinkle 2s infinite alternate;
+  opacity: 0.3;
+}
+
+.meteor {
+  position: absolute;
+  height: 1px;
+  background-image: linear-gradient(to right, #fff, rgba(255, 255, 255, 0));
+  opacity: 0;
+}
+
+.meteor::before {
+  --width: 5px;
+  --height: 5px;
+
+  content: "";
+  position: absolute;
+  width: var(--width);
+  height: var(--height);
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  left: calc(var(--width) * -1);
+  background: #fff;
+  box-shadow: 0 0 15px 3px #fff;
+  /* mask */
+  /* mask-image: linear-gradient(0.25turn, black 5%, #ffffff22 70%); */
+}
+
+@keyframes twinkle {
+  0% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
+
+@keyframes meteor {
+  25% {
+    opacity: 0.5;
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {
+    margin-top: 0px;
+    margin-left: 0px;
+    opacity: 0;
+  }
+}
