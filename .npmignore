@@ -1,4 +1,11 @@
-demo/
-*.log
-.DS_Store
+dev/
+examples/
+images/
+screenshots/
+*.png
+*.jpg
+*.gif
+.gitignore
+webpack.config.js
+.vscode/
 node_modules/
