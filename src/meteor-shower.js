@@ -27,8 +27,8 @@ class MeteorShower extends HTMLElement {
 
     //TODO add this to attributes for full customization
     this.CONFIG = {
-      METEOR_LENGTH: 100,
-      TRAJECTORY_MULTIPLIER: 4,
+      METEOR_LENGTH: 200,
+      TRAJECTORY_MULTIPLIER: 10,
 
       MIN_ROTATION_DEGREE: 45,
       MAX_ROTATION_DEGREE: 135,
@@ -306,8 +306,8 @@ class MeteorShower extends HTMLElement {
         --secondary: #030d1b;
         --size-star: 1px;
         --size-meteor: 5px;
-        --tail-meteor-relation: 100;
-        --size-tail-meteor: 100px;
+        --tail-meteor-relation: 200;
+        --size-tail-meteor: 200px;
       }
       
       .meteor-container {
