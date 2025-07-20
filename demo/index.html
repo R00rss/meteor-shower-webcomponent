@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Meteor Shower Web Component - Demo</title>
     <style>
+      /* meteor-shower {
+        --primary: rgb(96, 22, 22);
+        --secondary: #030d1b;
+      } */
+
       * {
         margin: 0;
         padding: 0;
@@ -22,6 +27,7 @@
         position: relative;
         height: 100vh;
         display: flex;
+        flex-direction: row;
         align-items: center;
         justify-content: center;
       }
@@ -39,7 +45,7 @@
       h1 {
         font-size: 3rem;
         margin-bottom: 1rem;
-        text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.55);
       }
 
       p {
@@ -88,7 +94,7 @@
       }
 
       code {
-        background: rgba(255, 255, 255, 0.1);
+        background: #ffffff1a;
         padding: 0.2rem 0.5rem;
         border-radius: 4px;
         font-family: "Courier New", monospace;
@@ -108,7 +114,7 @@
         gap: 0.5rem;
       }
 
-      .controls input {
+      .controls-params input {
         padding: 0.5rem;
         border: none;
         border-radius: 5px;
@@ -116,15 +122,45 @@
         color: white;
         width: 80px;
       }
+      .controls-colors input {
+        border: none;
+        border-radius: 5px;
+        background: transparent;
+        color: white;
+        width: 35px;
+        height: 35px;
+      }
 
       .controls input:focus {
         outline: 2px solid rgba(255, 255, 255, 0.5);
+      }
+      @media (width <= 48rem) {
+        .hero {
+          flex-direction: column-reverse;
+        }
+        p {
+          margin-bottom: 1rem;
+        }
+
+        .example {
+          p {
+            display: flex;
+            flex-direction: column;
+            span {
+              font-size: 1rem;
+            }
+          }
+          code {
+            font-size: 1.1rem;
+            margin-top: 0.5rem;
+          }
+        }
       }
     </style>
   </head>
   <body>
     <div class="hero">
-      <meteor-shower meteors="15" stars="400"></meteor-shower>
+      <meteor-shower meteors="40" stars="400"></meteor-shower>
       <div class="content">
         <h1>Meteor Shower</h1>
         <p>Beautiful Web Component for stunning backgrounds</p>
@@ -136,26 +172,26 @@
       <div class="example">
         <h3>Basic Usage</h3>
         <p>
-          Default settings:
+          <span>Default settings:</span>
           <code>&lt;meteor-shower&gt;&lt;/meteor-shower&gt;</code>
         </p>
         <div class="example-container">
           <meteor-shower></meteor-shower>
-          <div class="example-content">10 meteors, 300 stars</div>
+          <div class="example-content">30 meteors, 300 stars</div>
         </div>
       </div>
 
       <div class="example">
         <h3>High Intensity</h3>
         <p>
-          More meteors and stars:
+          <span>More meteors and stars:</span>
           <code
-            >&lt;meteor-shower meteors="25"
-            stars="500"&gt;&lt;/meteor-shower&gt;</code
+            >&lt;meteor-shower meteors="80"
+            stars="600"&gt;&lt;/meteor-shower&gt;</code
           >
         </p>
         <div class="example-container">
-          <meteor-shower meteors="25" stars="500"></meteor-shower>
+          <meteor-shower meteors="80" stars="600"></meteor-shower>
           <div class="example-content">25 meteors, 500 stars</div>
         </div>
       </div>
@@ -163,28 +199,58 @@
       <div class="example">
         <h3>Low Intensity</h3>
         <p>
-          Subtle animation:
+          <span>Subtle animation:</span>
           <code
             >&lt;meteor-shower meteors="5"
             stars="100"&gt;&lt;/meteor-shower&gt;</code
           >
         </p>
         <div class="example-container">
-          <meteor-shower meteors="5" stars="100"></meteor-shower>
+          <meteor-shower meteors="15" stars="150"></meteor-shower>
           <div class="example-content">5 meteors, 100 stars</div>
         </div>
       </div>
 
       <div class="example">
         <h3>Interactive Demo</h3>
-        <div class="controls">
+        <div class="controls controls-params">
           <label>
             Meteors:
-            <input type="number" id="meteors" value="10" min="1" max="50" />
+            <input type="number" id="meteors" value="30" min="1" />
           </label>
           <label>
             Stars:
-            <input type="number" id="stars" value="300" min="50" max="1000" />
+            <input type="number" id="stars" value="300" min="1" />
+          </label>
+        </div>
+        <div class="controls controls-params">
+          <label>
+            Size of stars:
+            <input type="number" id="size-star" value="1" min="1" />
+          </label>
+          <label>
+            Size of meteors:
+            <input type="number" id="size-meteor" value="5" min="1" />
+          </label>
+        </div>
+        <div class="controls controls-params">
+          <label>
+            Size of tail meteor:
+            <input type="number" id="size-tail-meteor" value="100" min="1" />
+          </label>
+          <label>
+            Show black hole:
+            <input style="width: 20px;height: 20px;" type="checkbox" id="show_black_hole" checked />
+          </label>
+        </div>
+        <div class="controls controls-colors">
+          <label>
+            Primary color:
+            <input type="color" id="primary-color" value="#2a0919" />
+          </label>
+          <label>
+            Secondary color:
+            <input type="color" id="secondary-color" value="#030d1b" />
           </label>
         </div>
         <div class="example-container">
@@ -192,6 +258,7 @@
             id="interactive"
             meteors="10"
             stars="300"
+            show_black_hole="true"
           ></meteor-shower>
           <div class="example-content">Interactive Demo</div>
         </div>
@@ -203,6 +270,13 @@
       // Interactive demo
       const meteorsInput = document.getElementById("meteors");
       const starsInput = document.getElementById("stars");
+      const primaryColorInput = document.getElementById("primary-color");
+      const secondaryColorInput = document.getElementById("secondary-color");
+      const sizeStarInput = document.getElementById("size-star");
+      const sizeMeteorInput = document.getElementById("size-meteor");
+      const sizeTailMeteorInput = document.getElementById("size-tail-meteor");
+      const showBlackHoleInput = document.getElementById("show_black_hole");
+
       const interactive = document.getElementById("interactive");
 
       meteorsInput.addEventListener("input", (e) => {
@@ -211,6 +285,37 @@
 
       starsInput.addEventListener("input", (e) => {
         interactive.setAttribute("stars", e.target.value);
+      });
+
+      primaryColorInput.addEventListener("input", (e) => {
+        interactive.style.setProperty("--primary", e.target.value);
+      });
+
+      secondaryColorInput.addEventListener("input", (e) => {
+        interactive.style.setProperty("--secondary", e.target.value);
+      });
+
+      sizeStarInput.addEventListener("input", (e) => {
+        interactive.style.setProperty("--size-star", `${e.target.value}px`);
+      });
+
+      sizeMeteorInput.addEventListener("input", (e) => {
+        interactive.style.setProperty("--size-meteor", `${e.target.value}px`);
+      });
+
+      sizeTailMeteorInput.addEventListener("input", (e) => {
+        interactive.style.setProperty(
+          "--size-tail-meteor",
+          `${e.target.value}px`
+        );
+      });
+
+      showBlackHoleInput.addEventListener("change", (e) => {
+        if (e.target.checked) {
+          interactive.setAttribute("show_black_hole", "true");
+        } else {
+          interactive.removeAttribute("show_black_hole");
+        }
       });
     </script>
   </body>
