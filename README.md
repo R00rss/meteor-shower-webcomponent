@@ -8,11 +8,14 @@ A beautiful, lightweight meteor shower animation as a Web Component. Perfect for
 
 - 🚀 **Zero dependencies** - Pure vanilla JavaScript
 - 📦 **Lightweight** - Less than 15KB minified
-- 🎨 **Customizable** - Control meteors and stars count
+- 🎨 **Highly Customizable** - Control meteors count, stars count, sizes, colors and black hole
+- 🌈 **Custom colors** - Personalize gradient background colors
+- 📏 **Size control** - Adjust stars, meteors and tail sizes independently
 - 🔧 **Easy to use** - Just one HTML tag
 - 📱 **Responsive** - Adapts to any container size
 - 🌐 **Universal** - Works in all modern browsers
 - 🎭 **Isolated** - Uses Shadow DOM, no style conflicts
+
 
 ## 🎮 Try it Live
 
@@ -42,9 +45,14 @@ npm install meteor-shower-webcomponent
 <meteor-shower></meteor-shower>
 ```
 
-### With Custom Settings
+### High Intensity with Black Hole
 ```html
-<meteor-shower meteors="20" stars="500"></meteor-shower>
+<meteor-shower 
+  meteors="80" 
+  stars="600"
+  show_black_hole="true"
+>
+</meteor-shower>
 ```
 
 ### With Custom Styling
@@ -56,12 +64,28 @@ npm install meteor-shower-webcomponent
 </meteor-shower>
 ```
 
+### Fully Customized
+```html
+<meteor-shower 
+  meteors="50" 
+  stars="400" 
+  show_black_hole="true"
+  style="
+    --primary: #ff0066;
+    --secondary: #0066ff;
+    --size-star: 2px;
+    --size-meteor: 8px;
+    --size-tail-meteor: 150px;
+  ">
+</meteor-shower>
+```
+
 ### Using as Background
 ```html
 <div style="position: relative; height: 100vh;">
   <meteor-shower style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></meteor-shower>
   <div style="position: relative; z-index: 1;">
-    <h1>Your content here</h1>
+    <h1 style="font-size: 30px; color: blue;">Your content here</h1>
   </div>
 </div>
 ```
@@ -72,6 +96,7 @@ npm install meteor-shower-webcomponent
 |-----------|------|---------|-------------|
 | `meteors` | Number | `10` | Number of meteors to display |
 | `stars` | Number | `300` | Number of background stars |
+| `show_black_hole` | Boolean | `false` | Enable black hole |
 
 ## 🎨 Customization
 
@@ -79,8 +104,11 @@ The component uses CSS custom properties that you can override:
 
 ```css
 meteor-shower {
-  --primary: #2a0919;    /* Primary gradient color */
-  --secondary: #030d1b;   /* Secondary gradient color */
+  --primary: #2a0919;           /* Primary gradient color */
+  --secondary: #030d1b;         /* Secondary gradient color */
+  --size-star: 1px;             /* Size of background stars */
+  --size-meteor: 5px;           /* Size of meteor heads */
+  --size-tail-meteor: 100px;    /* Length of meteor tails */
 }
 ```
 
