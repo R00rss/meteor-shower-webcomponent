@@ -3,12 +3,14 @@
     "version": "1.0.1",
     "description": "Beautiful meteor shower animation as a Web Component. Perfect for backgrounds in landing pages, portfolios, and interactive websites.",
     "main": "dist/meteor-shower.min.js",
-    "module": "src/meteor-shower.js",
+    "module": "dist/meteor-shower.min.js",
+    "browser": "dist/meteor-shower.min.js",
+    "type": "module",
     "types": "types/meteor-shower.d.ts",
     "files": [
-        "src/",
         "dist/",
-        "types/"
+        "README.md",
+        "LICENSE"
     ],
     "scripts": {
         "build": "npm run build:minify",
