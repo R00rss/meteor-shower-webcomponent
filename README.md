@@ -7,7 +7,7 @@ A beautiful, lightweight meteor shower animation as a Web Component. Perfect for
 ## ✨ Features
 
 - 🚀 **Zero dependencies** - Pure vanilla JavaScript
-- 📦 **Lightweight** - Less than 5KB minified
+- 📦 **Lightweight** - Less than 15KB minified
 - 🎨 **Customizable** - Control meteors and stars count
 - 🔧 **Easy to use** - Just one HTML tag
 - 📱 **Responsive** - Adapts to any container size
