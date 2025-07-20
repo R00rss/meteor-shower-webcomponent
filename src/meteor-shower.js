@@ -80,7 +80,6 @@ class MeteorShower extends HTMLElement {
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
-    console.log({ name, oldValue, newValue });
     if (oldValue === newValue) return;
 
     switch (name) {
@@ -115,7 +114,6 @@ class MeteorShower extends HTMLElement {
   }
 
   connectedCallback() {
-    console.log("Connected MeteorShower component");
     const attributes = MeteorShower.observedAttributes;
     attributes.forEach(attr => {
       const value = this.getAttribute(attr);
@@ -507,7 +505,6 @@ class MeteorShower extends HTMLElement {
   }
 
   render() {
-    console.log("Rendering MeteorShower component with")
     if (!this._initialized) {
       this.shadowRoot.innerHTML = this.getTemplate();
       this._initialized = true;
