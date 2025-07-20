@@ -1,6 +1,6 @@
 # 🌟 Meteor Shower Web Component
 
-![example meteor shower web-component in use](./assets/example.png)
+![Demo del proyecto](./assets/example.gif)
 
 A beautiful, lightweight meteor shower animation as a Web Component. Perfect for creating stunning backgrounds in landing pages, portfolios, and interactive websites.
 
@@ -13,6 +13,15 @@ A beautiful, lightweight meteor shower animation as a Web Component. Perfect for
 - 📱 **Responsive** - Adapts to any container size
 - 🌐 **Universal** - Works in all modern browsers
 - 🎭 **Isolated** - Uses Shadow DOM, no style conflicts
+
+## 🎮 Try it Live
+
+### 🔗 Interactive Demo
+**[View Live Demo](https://r00rss.github.io/meteor-shower-webcomponent/demo/)** - See all examples and interactive playground
+
+### ⚡ Quick Try on StackBlitz
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/meteor-shower-example)
+
 
 ## 🚀 Installation
 
