@@ -32,11 +32,19 @@ A beautiful, lightweight meteor shower animation as a Web Component. Perfect for
 ```bash
 npm install meteor-shower-webcomponent
 ```
+```javascript
+// In your JavaScript file
+import 'meteor-shower-webcomponent';
+```
+
 
 ### Via CDN
 ```html
 <script src="https://unpkg.com/meteor-shower-webcomponent@latest/dist/meteor-shower.min.js"></script>
 ```
+
+<!-- if using NPM add import -->
+
 
 ## 📖 Usage
 
